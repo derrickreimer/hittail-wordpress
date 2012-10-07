@@ -9,6 +9,7 @@ function ht_register_settings() {
 	register_setting('ht_options_group', 'ht_options');
 	add_settings_section('ht_code_settings', 'Tracking Code Settings', 'ht_code_settings_text', 'hittail');
 	add_settings_field('ht_site_id', 'Site ID', 'ht_option_site_id', 'hittail', 'ht_code_settings');
+	add_settings_field('ht_is_disabled', 'Disable Tracking Code?', 'ht_option_is_disabled', 'hittail', 'ht_code_settings');
 }
 
 add_action('admin_init', 'ht_register_settings');
@@ -56,10 +57,15 @@ add_action('admin_enqueue_scripts', 'ht_admin_styles');
 //===========================
 
 function ht_code_settings_text() {
-	echo '<p>Enter your site ID to enable your HitTail tracking code. Your site ID is located under Account &gt; Sites in your HitTail account.</p>';
+	echo '<p>Your site ID is located under Account &gt; Sites in your HitTail account.</p>';
 }
 
 function ht_option_site_id() {
 	global $ht_options;
 	echo "<input type='text' name='ht_options[site_id]' size='20' value='{$ht_options['site_id']}'>";
+}
+
+function ht_option_is_disabled() {
+	global $ht_options;
+	echo "<input type='checkbox' name='ht_options[is_disabled]' value='1' " . checked(1, $ht_options['is_disabled'], false) . " />";
 }

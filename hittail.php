@@ -32,6 +32,7 @@ function ht_install() {
 	
 	// Set default options
 	if (!isset($ht_options['site_id'])) { $ht_options['site_id'] = ""; }
+	if (!isset($ht_options['is_disabled'])) { $ht_options['is_disabled'] = 0; }
 	
 	// Save options
 	update_option('ht_options', $ht_options);
@@ -46,15 +47,17 @@ function ht_tracking_code() {
 	$id = $ht_options['site_id'];
 	
 	// Check if the ID is set and is an integer
-	if (isset($id) && $id != "") {
-		echo '<!-- HitTail Code -->' .
-			'<script type="text/javascript">' .
-				'(function(){ var ht = document.createElement("script");ht.async = true;' .
-			  	'ht.type="text/javascript";ht.src="//' . $id . '.hittail.com/mlt.js";' .
-			  	'var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ht, s);})();' .
-			'</script>';
-	} else {
-		echo '<!-- HitTail: Set your site ID to begin tracking -->';
+	if (!$ht_options['is_disabled'] != 0) {
+		if (isset($id) && $id != "") {
+			echo '<!-- HitTail Code -->' .
+				'<script type="text/javascript">' .
+					'(function(){ var ht = document.createElement("script");ht.async = true;' .
+				  	'ht.type="text/javascript";ht.src="//' . $id . '.hittail.com/mlt.js";' .
+				  	'var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ht, s);})();' .
+				'</script>';
+		} else {
+			echo '<!-- HitTail: Set your site ID to begin tracking -->';
+		}
 	}
 }
 
