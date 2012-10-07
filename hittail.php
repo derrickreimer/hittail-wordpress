@@ -14,24 +14,24 @@ require_once( dirname( __FILE__ ) . '/lib/constants.php' );
 
 class WP_HitTail {
 	var $namespace = "hittail";
-    var $friendly_name = "HitTail";
-    var $version = "1.0.0";
+	var $friendly_name = "HitTail";
+	var $version = "1.0.0";
 	var $options;
 	
 	/**
-     * Instantiate a new instance
-     * 
-     * @uses get_option()
-     */
+	 * Instantiate a new instance
+	 * 
+	 * @uses get_option()
+	 */
 	public function __construct() {
 		// Fetch options
 		$this->options = get_option( 'ht_options' );
 		
 		// Load all library files used by this plugin
-        $libs = glob( WP_HITTAIL_DIRNAME . '/lib/*.php' );
-        foreach( $libs as $lib ) {
-            include_once( $lib );
-        }
+		$libs = glob( WP_HITTAIL_DIRNAME . '/lib/*.php' );
+		foreach( $libs as $lib ) {
+			include_once( $lib );
+		}
 		
 		// Register hooks
 		$this->_add_hooks();
@@ -68,7 +68,7 @@ class WP_HitTail {
 	 */
 	private function _add_hooks() {
 		// Options page for configuration
-        add_action( 'admin_menu', array( &$this, 'admin_menu' ) );
+		add_action( 'admin_menu', array( &$this, 'admin_menu' ) );
 
 		// Register admin settings
 		add_action( 'admin_init', array( &$this, 'admin_register_settings' ) );
@@ -110,24 +110,24 @@ class WP_HitTail {
 	}
 	
 	/**
-     * Define the admin menu options for this plugin
-     * 
-     * @uses add_action()
-     * @uses add_options_page()
-     */
+	 * Define the admin menu options for this plugin
+	 * 
+	 * @uses add_action()
+	 * @uses add_options_page()
+	 */
 	public function admin_menu() {
 		$page_hook = add_options_page( 'HitTail Settings', $this->friendly_name, 'manage_options', $this->namespace, array( &$this, 'admin_options_page' ) );
-        
-        // Add admin scripts and styles
-        add_action( 'admin_enqueue_scripts', array( &$this, 'admin_enqueue_scripts' ) );
+		
+		// Add admin scripts and styles
+		add_action( 'admin_enqueue_scripts', array( &$this, 'admin_enqueue_scripts' ) );
 	}
 	
 	/**
-     * The admin section options page rendering method
-     * 
-     * @uses current_user_can()
-     * @uses wp_die()
-     */
+	 * The admin section options page rendering method
+	 * 
+	 * @uses current_user_can()
+	 * @uses wp_die()
+	 */
 	public function admin_options_page() {
 		// Ensure the user has sufficient permissions
 		if ( ! current_user_can( 'manage_options' ) )  {
@@ -173,28 +173,28 @@ class WP_HitTail {
 	public function admin_section_code_settings() {
 		echo '<p>Your site ID can be found under Account &rarr; Sites in your HitTail account.</p>';
 	}
-    
-    /**
-     * Load stylesheet for the admin options page
-     * 
-     * @uses wp_enqueue_style()
-     */
-    function admin_enqueue_scripts() {
-        wp_enqueue_style( "{$this->namespace}_admin_css", WP_HITTAIL_URLPATH . "/css/admin.css" );
-    }
 	
 	/**
-     * Initialization function to hook into the WordPress init action
-     * 
-     * Instantiates the class on a global variable and sets the class, actions
-     * etc. up for use.
-     */
+	 * Load stylesheet for the admin options page
+	 * 
+	 * @uses wp_enqueue_style()
+	 */
+	function admin_enqueue_scripts() {
+		wp_enqueue_style( "{$this->namespace}_admin_css", WP_HITTAIL_URLPATH . "/css/admin.css" );
+	}
+	
+	/**
+	 * Initialization function to hook into the WordPress init action
+	 * 
+	 * Instantiates the class on a global variable and sets the class, actions
+	 * etc. up for use.
+	 */
 	static function instance() {
-        global $WP_HitTail;
-        
-        // Only instantiate the Class if it hasn't been already
-        if( ! isset( $WP_HitTail ) ) $WP_HitTail = new WP_HitTail();
-    }
+		global $WP_HitTail;
+		
+		// Only instantiate the Class if it hasn't been already
+		if( ! isset( $WP_HitTail ) ) $WP_HitTail = new WP_HitTail();
+	}
 }
 
 if( !isset( $WP_HitTail ) ) {
