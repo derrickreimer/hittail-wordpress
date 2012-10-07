@@ -1,8 +1,18 @@
 <?php
+/**
+ * HitTail Long Tail SEO Keyword Tool
+ * 
+ * The official HitTail Wordpress plugin.
+ * 
+ * @package HitTail
+ * @global object $WP_HitTail
+ * @author Derrick Reimer <derrick@hittail.com>
+ * @version 0.1.0
+ */
 /*
-Plugin Name: HitTail Long Tail SEO Tool
+Plugin Name: HitTail Long Tail SEO Keyword Tool
 Plugin URI: http://www.hittail.com/plugins/wordpress
-Description: Official HitTail Wordpress plugin
+Description: The official HitTail Wordpress plugin
 Version: 0.1.0
 Author: Derrick Reimer
 Author URI: http://www.hittail.com
@@ -15,7 +25,7 @@ require_once( dirname( __FILE__ ) . '/lib/constants.php' );
 class WP_HitTail {
 	var $namespace = "hittail";
 	var $friendly_name = "HitTail";
-	var $version = "1.0.0";
+	var $version = "0.1.0";
 	var $options_name = "ht_options";
 	var $options;
 	

@@ -1,4 +1,12 @@
 <?php
+/**
+ * Constants used by this plugin
+ * 
+ * @package HitTail
+ * @author Derrick Reimer <derrick@hittail.com>
+ * @version 0.1.0
+ * @since 0.1.0
+ */
 
 // The current version of this plugin
 if( !defined( 'WP_HITTAIL_VERSION' ) ) define( 'WP_HITTAIL_VERSION', '1.0.0' );
