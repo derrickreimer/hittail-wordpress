@@ -9,26 +9,42 @@ Author URI: http://www.hittail.com
 License: GPLv2
 */
 
-define( 'HT_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
-
-require_once( 'lib/admin.php' );
+// Include constants file
+require_once( dirname( __FILE__ ) . '/lib/constants.php' );
 
 class WP_HitTail {
-	protected $options;
+	var $namespace = "hittail";
+    var $friendly_name = "HitTail";
+    var $version = "1.0.0";
+	var $options;
 	
+	/**
+     * Instantiate a new instance
+     * 
+     * @uses get_option()
+     */
 	public function __construct() {
 		// Fetch options
 		$this->options = get_option( 'ht_options' );
 		
-		// Register install function
-		register_activation_hook( __FILE__, array( $this, 'install' ) );
+		// Load all library files used by this plugin
+        $libs = glob( WP_HITTAIL_DIRNAME . '/lib/*.php' );
+        foreach( $libs as $lib ) {
+            include_once( $lib );
+        }
 		
 		// Register hooks
-		$this->add_actions();
+		$this->_add_hooks();
 	}
 	
-	// Install the plugin and set default options.
-	public function install() {
+	/**
+	 * Sets default options upon activation
+	 *
+	 * Hook into register_activation_hook action
+	 *
+	 * @uses update_option()
+	 */
+	public function activate() {
 		// Set default options
 		if ( ! isset( $this->options['site_id'] ) ) { $this->options['site_id'] = ""; }
 
@@ -36,12 +52,38 @@ class WP_HitTail {
 		update_option( 'ht_options', $this->options );
 	}
 	
-	public function add_actions() {
-		// Place tracking code in the footer
-		add_action( 'wp_footer', array( $this, 'tracking_code' ) );
+	/**
+	 * Clean up after deactivation
+	 *
+	 * Hook into register_deactivation_hook action
+	 */
+	public function deactivate() {
+		// Deactivation stuff here...
 	}
 	
-	// Lookup an option and return NULL unless it is set and non-empty
+	/**
+	 * Add various hooks and actions here
+	 *
+	 * @uses add_action()
+	 */
+	private function _add_hooks() {
+		// Options page for configuration
+        add_action( 'admin_menu', array( &$this, 'admin_menu' ) );
+
+		// Register admin settings
+		add_action( 'admin_init', array( &$this, 'admin_register_settings' ) );
+
+		// Place tracking code in the footer
+		add_action( 'wp_footer', array( &$this, 'tracking_code' ) );
+	}
+	
+	/**
+	 * Lookup an option from the options array
+	 *
+	 * @param string $key The name of the option you wish to retrieve
+	 *
+	 * @return mixed Returns the option value or NULL if the option is not set or empty
+	 */
 	public function get_option( $key ) {
 		if ( isset( $this->options[ $key ] ) && $this->options[ $key ] != "" ) {
 			return $this->options[ $key ];
@@ -50,25 +92,114 @@ class WP_HitTail {
 		}
 	} 
 	
-	// Output the HitTail tracking code with the site ID set in the options.
+	/**
+	 * Output the HitTail tracking code
+	 *
+	 * Displays nothing if tracking code is disabled or the site ID is not set.
+	 */
 	public function tracking_code() {
 		// Check if the ID is set and is an integer
 		if ( ! $this->get_option( 'is_disabled' ) ) {
-			if ( $this->get_option( 'site_id' ) ) { ?>
-				
-				<!-- HitTail Code -->
-				<script type="text/javascript">
-					(function(){ var ht = document.createElement("script");ht.async = true;
-					ht.type="text/javascript";ht.src="//<?php echo $this->get_option( 'site_id' ) ?>.hittail.com/mlt.js";
-					var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ht, s);})();
-				</script>
-				
-			<?php 
+			if ( $this->get_option( 'site_id' ) ) { 
+				$site_id = $this->get_option( 'site_id' );
+				include( WP_HITTAIL_DIRNAME . "/views/tracking-code.php" );
 			} else {
 				echo '<!-- HitTail: Set your site ID to begin tracking -->';
 			}
 		}
 	}
+	
+	/**
+     * Define the admin menu options for this plugin
+     * 
+     * @uses add_action()
+     * @uses add_options_page()
+     */
+	public function admin_menu() {
+		$page_hook = add_options_page( 'HitTail Settings', $this->friendly_name, 'manage_options', $this->namespace, array( &$this, 'admin_options_page' ) );
+        
+        // Add admin scripts and styles
+        add_action( 'admin_enqueue_scripts', array( &$this, 'admin_enqueue_scripts' ) );
+	}
+	
+	/**
+     * The admin section options page rendering method
+     * 
+     * @uses current_user_can()
+     * @uses wp_die()
+     */
+	public function admin_options_page() {
+		// Ensure the user has sufficient permissions
+		if ( ! current_user_can( 'manage_options' ) )  {
+			wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
+		}
+		
+		include( WP_HITTAIL_DIRNAME . "/views/options.php" );
+	}
+	
+	/**
+	 * Register all the settings for the options page (Settings API)
+	 *
+	 * @uses register_setting()
+	 * @uses add_settings_section()
+	 * @uses add_settings_field()
+	 */
+	public function admin_register_settings() {
+		register_setting( 'ht_options_group', 'ht_options' );
+		add_settings_section( 'ht_code_settings', 'Tracking Code', array( &$this, 'admin_section_code_settings' ), $this->namespace );
+		add_settings_field( 'ht_site_id', 'Site ID', array( &$this, 'admin_option_site_id' ), $this->namespace, 'ht_code_settings' );
+		add_settings_field( 'ht_is_disabled', 'Visibility', array( &$this, 'admin_option_is_disabled' ), $this->namespace, 'ht_code_settings' );
+	}
+	
+	/** 
+	 * Output the input for the site ID option
+	 */
+	public function admin_option_site_id() {
+		echo "<input type='text' name='ht_options[site_id]' size='20' value='{$this->get_option( 'site_id' )}'>";
+	}
+	
+	/** 
+	 * Output the input for the disabled option
+	 */
+	public function admin_option_is_disabled() {
+		echo "<input type='checkbox' name='ht_options[is_disabled]' value='1' " . 
+			checked( 1, $this->get_option( 'is_disabled' ), false ) . " /> " .
+			"Disable tracking code on all pages";
+	}
+	
+	/** 
+	 * Output the description for the Tracking Code settings section
+	 */
+	public function admin_section_code_settings() {
+		echo '<p>Your site ID can be found under Account &rarr; Sites in your HitTail account.</p>';
+	}
+    
+    /**
+     * Load stylesheet for the admin options page
+     * 
+     * @uses wp_enqueue_style()
+     */
+    function admin_enqueue_scripts() {
+        wp_enqueue_style( "{$this->namespace}_admin_css", WP_HITTAIL_URLPATH . "/css/admin.css" );
+    }
+	
+	/**
+     * Initialization function to hook into the WordPress init action
+     * 
+     * Instantiates the class on a global variable and sets the class, actions
+     * etc. up for use.
+     */
+	static function instance() {
+        global $WP_HitTail;
+        
+        // Only instantiate the Class if it hasn't been already
+        if( ! isset( $WP_HitTail ) ) $WP_HitTail = new WP_HitTail();
+    }
 }
 
-$wp_hittail = new WP_HitTail();
+if( !isset( $WP_HitTail ) ) {
+	WP_HitTail::instance();
+}
+
+register_activation_hook( __FILE__, array( 'WP_HitTail', 'activate' ) );
+register_deactivation_hook( __FILE__, array( 'WP_HitTail', 'deactivate' ) );
