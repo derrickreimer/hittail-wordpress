@@ -1,50 +1,56 @@
-=== HitTail Long Tail SEO Tool ===
+=== SEO Keyword Suggestions by HitTail ===
 Contributors: hittail
-Tags: seo
-Requires at least: ???
-Tested up to: ???
-Stable tag: ???
+Tags: seo, search engine optimization, search engine optimisation, keyword tool, keywords, longtail, long tail, hittail
+Requires at least: 3.0
+Tested up to: 3.4.2
+Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Here is a short description of the plugin.  This should be no more than 150 characters.  No markup here.
+Drive targeted search visitors to your website by focusing on the most promising organic keywords in your existing traffic.
 
 == Description ==
 
-This is the long description.  No limit, and you can use Markdown (as well as in the following sections).
+HitTail is an [SEO keyword tool](http://www.hittail.com/?utm_source=wordpress&utm_medium=plugin&utm_campaign=desc) 
+that tells you, in real-time, the most promising search terms you should 
+target based on your existing traffic. We do this using a sophisticated 
+algorithm tuned by analyzing over 1.2 billion keywords.
 
-For backwards compatibility, if this section is missing, the full length of the short description will be used, and
-Markdown parsed.
+As a website owner, one of your biggest assets is the proprietary data 
+contained in your web traffic, since your competition does not have access 
+to it.
 
-A few notes about the sections above:
+HitTail analyzes your visitor stream in real-time and provides you with a 
+simple, actionable list of precisely which keywords you should be targeting 
+to dramatically grow your organic search traffic.
 
-*   "Contributors" is a comma separated list of wp.org/wp-plugins.org usernames
-*   "Tags" is a comma separated list of tags that apply to the plugin
-*   "Requires at least" is the lowest version that the plugin will work on
-*   "Tested up to" is the highest version that you've *successfully used to test the plugin*. Note that it might work on
-higher versions... this is just the highest one you've verified.
-*   Stable tag should indicate the Subversion "tag" of the latest stable version, or "trunk," if you use `/trunk/` for
-stable.
+= The HitTailing Process =
 
-    Note that the `readme.txt` of the stable tag is the one that is considered the defining one for the plugin, so
-if the `/trunk/readme.txt` file says that the stable tag is `4.3`, then it is `/tags/4.3/readme.txt` that'll be used
-for displaying information about the plugin.  In this situation, the only thing considered from the trunk `readme.txt`
-is the stable tag pointer.  Thus, if you develop in trunk, you can update the trunk `readme.txt` to reflect changes in
-your in-development version, without having that information incorrectly disclosed about the current stable version
-that lacks those changes -- as long as the trunk's `readme.txt` points to the correct stable tag.
+HitTail uses a small snippet of code installed on your website to track all
+your incoming search traffic. This plugin automatically installs the code
+for you. We then run your keywords through our algorithm to whether you can
+easily benefit from targeting them on your site.
 
-    If no stable tag is provided, it is assumed that trunk is stable, but you should specify "trunk" if that's where
-you put the stable version, in order to eliminate any doubt.
+If you target the [keyword suggestions](http://www.hittail.com/faq/write.html?utm_source=wordpress&utm_medium=plugin&utm_campaign=desc) 
+provided by HitTail in just on article or blog post, you are almost 
+**guaranteed** to rank on the first page for those keywords. As you 
+continue adding content and increasing your keyword diversity, the size 
+and rankings of your site effectively _snowball_. That is the power of
+long tail SEO.
+
+= More Information =
+
+For more information, check out the following pages:
+
+- [HitTail Plans](http://www.hittail.com/plans.asp?utm_source=wordpress&utm_medium=plugin&utm_campaign=desc)
+- [How Is HitTail Different From Analytics?](http://www.hittail.com/faq/analytics.html?utm_source=wordpress&utm_medium=plugin&utm_campaign=desc)
+- [What Should I Do With Keyword Suggestions?](http://www.hittail.com/faq/write.html?utm_source=wordpress&utm_medium=plugin&utm_campaign=desc)
 
 == Installation ==
 
-This section describes how to install the plugin and get it working.
-
-e.g.
-
-1. Upload `plugin-name.php` to the `/wp-content/plugins/` directory
-1. Activate the plugin through the 'Plugins' menu in WordPress
-1. Place `<?php do_action('plugin_name_hook'); ?>` in your templates
+1. Upload `seo-keyword-suggestions` folder to the `/wp-content/plugins/` directory
+2. Activate the SEO Keyword Suggestions by HitTail plugin through the 'Plugins' menu in WordPress
+3. Configure the plugin by going to the `HitTail` page that appears in your Settings menu
 
 == Frequently Asked Questions ==
 

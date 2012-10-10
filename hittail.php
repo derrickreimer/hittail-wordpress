@@ -1,6 +1,6 @@
 <?php
 /**
- * HitTail Long Tail SEO Keyword Tool
+ * SEO Keyword Suggestions by HitTail
  * 
  * The official HitTail Wordpress plugin.
  * 
@@ -10,9 +10,9 @@
  * @version 0.1.0
  */
 /*
-Plugin Name: HitTail Long Tail SEO Keyword Tool
+Plugin Name: SEO Keyword Suggestions by HitTail
 Plugin URI: http://www.hittail.com/plugins/wordpress
-Description: The official HitTail Wordpress plugin
+Description: Drive targeted search visitors to your website by focusing on the most promising organic keywords in your existing traffic.
 Version: 0.1.0
 Author: Derrick Reimer
 Author URI: http://www.hittail.com
