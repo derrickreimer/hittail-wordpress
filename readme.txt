@@ -11,7 +11,7 @@ Drive targeted search visitors to your website by focusing on the most promising
 
 == Description ==
 
-HitTail is an [SEO keyword tool](http://www.hittail.com/?utm_source=wordpress&utm_medium=plugin&utm_campaign=desc) 
+HitTail is an [SEO keyword tool](http://www.hittail.com/) 
 that tells you, in real-time, the most promising search terms you should 
 target based on your existing traffic. We do this using a sophisticated 
 algorithm tuned by analyzing over 1.2 billion keywords.
@@ -28,11 +28,11 @@ to dramatically grow your organic search traffic.
 
 HitTail uses a small snippet of code installed on your website to track all
 your incoming search traffic. This plugin automatically installs the code
-for you. We then run your keywords through our algorithm to whether you can
-easily benefit from targeting them on your site.
+for you. We then analyze all your traffic to find the most promising keyword
+suggestions for your site.
 
-If you target the [keyword suggestions](http://www.hittail.com/faq/write.html?utm_source=wordpress&utm_medium=plugin&utm_campaign=desc) 
-provided by HitTail in just on article or blog post, you are almost 
+If you target the [keyword suggestions](http://www.hittail.com/faq/write.html) 
+provided by HitTail in just one article or blog post, you are almost 
 **guaranteed** to rank on the first page for those keywords. As you 
 continue adding content and increasing your keyword diversity, the size 
 and rankings of your site effectively _snowball_. That is the power of
@@ -42,13 +42,13 @@ long tail SEO.
 
 For more information, check out the following pages:
 
-- [HitTail Plans](http://www.hittail.com/plans.asp?utm_source=wordpress&utm_medium=plugin&utm_campaign=desc)
-- [How Is HitTail Different From Analytics?](http://www.hittail.com/faq/analytics.html?utm_source=wordpress&utm_medium=plugin&utm_campaign=desc)
-- [What Should I Do With Keyword Suggestions?](http://www.hittail.com/faq/write.html?utm_source=wordpress&utm_medium=plugin&utm_campaign=desc)
+- [HitTail Plans](http://www.hittail.com/plans.asp)
+- [How Is HitTail Different From Analytics?](http://www.hittail.com/faq/analytics.html)
+- [What Should I Do With Keyword Suggestions?](http://www.hittail.com/faq/write.html)
 
 == Installation ==
 
-1. Upload `seo-keyword-suggestions` folder to the `/wp-content/plugins/` directory
+1. Upload the `seo-keyword-suggestions` folder to the `/wp-content/plugins/` directory
 2. Activate the SEO Keyword Suggestions by HitTail plugin through the 'Plugins' menu in WordPress
 3. Configure the plugin by going to the `HitTail` page that appears in your Settings menu
 
@@ -72,23 +72,5 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 
 == Changelog ==
 
-= 1.0 =
-* A change since the previous version.
-* Another change.
-
-= 0.5 =
-* List versions from most recent at top to oldest at bottom.
-
-== Upgrade Notice ==
-
-= 1.0 =
-Upgrade notices describe the reason a user should upgrade.  No more than 300 characters.
-
-= 0.5 =
-This version fixes a security related bug.  Upgrade immediately.
-
-== Arbitrary section ==
-
-You may provide arbitrary sections, in the same format as the ones above.  This may be of use for extremely complicated
-plugins where more information needs to be conveyed that doesn't fit into the categories of "description" or
-"installation."  Arbitrary sections will be shown below the built-in sections outlined above.
+= 1.0.0 =
+* Initial release.
