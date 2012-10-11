@@ -4,12 +4,12 @@
  * 
  * @package HitTail
  * @author Derrick Reimer <derrick@hittail.com>
- * @version 0.1.0
- * @since 0.1.0
+ * @version 1.0.0.rc1
+ * @since 1.0.0
  */
 
 // The current version of this plugin
-if( !defined( 'WP_HITTAIL_VERSION' ) ) define( 'WP_HITTAIL_VERSION', '1.0.0' );
+if( !defined( 'WP_HITTAIL_VERSION' ) ) define( 'WP_HITTAIL_VERSION', '1.0.0.rc1' );
 
 // The directory the plugin resides in
 if( !defined( 'WP_HITTAIL_DIRNAME' ) ) define( 'WP_HITTAIL_DIRNAME', dirname( dirname( __FILE__ ) ) );
