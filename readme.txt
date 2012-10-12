@@ -18,18 +18,15 @@ algorithm tuned by analyzing over 1.2 billion keywords.
 
 As a website owner, one of your biggest assets is the proprietary data 
 contained in your web traffic, since your competition does not have access 
-to it.
-
-HitTail analyzes your visitor stream in real-time and provides you with a 
+to it. HitTail analyzes your visitor stream in real-time and provides you with a 
 simple, actionable list of precisely which keywords you should be targeting 
 to dramatically grow your organic search traffic.
 
 = The HitTailing Process =
 
-HitTail uses a small snippet of code installed on your website to track all
-your incoming search traffic. This plugin automatically installs the code
-for you. We then analyze all your traffic to find the most promising keyword
-suggestions for your site.
+Simply [sign up for a HitTail account](http://www.hittail.com/plans.asp)
+and install this plugin to get started. Once installed, we begin to analyze all 
+your traffic to find the most promising keyword suggestions for your website.
 
 If you target the [keyword suggestions](http://www.hittail.com/faq/write.html) 
 provided by HitTail in just one article or blog post, you are almost 
@@ -40,35 +37,33 @@ long tail SEO.
 
 = More Information =
 
-For more information, check out the following pages:
-
-- [HitTail Plans](http://www.hittail.com/plans.asp)
+- [Create a HitTail account](http://www.hittail.com/plans.asp) (free trial)
 - [How Is HitTail Different From Analytics?](http://www.hittail.com/faq/analytics.html)
 - [What Should I Do With Keyword Suggestions?](http://www.hittail.com/faq/write.html)
 
 == Installation ==
 
 1. Upload the `seo-keyword-suggestions` folder to the `/wp-content/plugins/` directory
-2. Activate the SEO Keyword Suggestions by HitTail plugin through the 'Plugins' menu in WordPress
+2. Activate the **SEO Keyword Suggestions by HitTail** plugin through the 'Plugins' menu in WordPress
 3. Configure the plugin by going to the `HitTail` page that appears in your Settings menu
 
 == Frequently Asked Questions ==
 
-= A question that someone might have =
+= How do I install the tracking code on my website? =
 
-An answer to that question.
+This plugin automatically installs the HitTail tracking code for you. All you 
+have to do is install this plugin and enter your Site ID on the settings page.
+Your Site ID can be found on the [Account > Sites](http://www.hittail.com/app/sites.asp)
+page.
 
-= What about foo bar? =
+= Do I need to have a HitTail account? =
 
-Answer to foo bar dilemma.
+Yes. (Sign up here)[http://www.hittail.com/plans.asp] for a free trial.
 
 == Screenshots ==
 
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
-the /assets directory or the directory that contains the stable readme.txt (tags or trunk). Screenshots in the /assets 
-directory take precedence. For example, `/assets/screenshot-1.png` would win over `/tags/4.3/screenshot-1.png` 
-(or jpg, jpeg, gif).
-2. This is the second screen shot
+1. HitTail settings page
+2. Site ID in your HitTail account
 
 == Changelog ==
 
