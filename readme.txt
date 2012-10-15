@@ -59,7 +59,7 @@ page.
 = Do I need to have a HitTail account? =
 
 Yes. This plugin installs the tracking code needed for HitTail to work. 
-(Sign up here)[http://www.hittail.com/plans.asp] for a free trial.
+[Sign up here](http://www.hittail.com/plans.asp) for a free trial.
 
 == Screenshots ==
 
