@@ -211,7 +211,7 @@ class WP_HitTail {
 	 * Output the description for the Tracking Code settings section
 	 */
 	public function admin_section_code_settings() {
-		echo '<p>Your site ID can be found under Account &rarr; Sites in your HitTail account.</p>';
+		echo '<p>Your site ID can be found under <a href="http://www.hittail.com/app/sites.asp">Account &rarr; Sites</a> in your HitTail account.</p>';
 	}
 	
 	/**
