@@ -78,6 +78,10 @@ class WP_HitTail {
 	 * @uses add_action()
 	 */
 	private function _add_hooks() {
+		// Activation and deactivation
+		register_activation_hook( __FILE__, array( &$this, 'activate' ) );
+		register_deactivation_hook( __FILE__, array( &$this, 'deactivate' ) );
+		
 		// Options page for configuration
 		add_action( 'admin_menu', array( &$this, 'admin_menu' ) );
 
@@ -236,6 +240,3 @@ class WP_HitTail {
 if( !isset( $WP_HitTail ) ) {
 	WP_HitTail::instance();
 }
-
-register_activation_hook( __FILE__, array( 'WP_HitTail', 'activate' ) );
-register_deactivation_hook( __FILE__, array( 'WP_HitTail', 'deactivate' ) );
