@@ -19,7 +19,7 @@ algorithm tuned by analyzing over 1.2 billion keywords.
 As a website owner, one of your biggest assets is the proprietary data 
 contained in your web traffic, since your competition does not have access 
 to it. HitTail analyzes your visitor stream in real-time and provides you with a 
-simple, actionable list of precisely which keywords you should be targeting 
+simple, actionable list of SEO keyword suggestions you should be targeting 
 to dramatically grow your organic search traffic.
 
 = The HitTailing Process =
@@ -30,14 +30,14 @@ your traffic to find the most promising keyword suggestions for your website.
 
 If you target the [keyword suggestions](http://www.hittail.com/faq/write.html) 
 provided by HitTail in just one article or blog post, you are almost 
-**guaranteed** to rank on the first page for those keywords. As you 
+guaranteed to rank on the first page for those keywords. As you 
 continue adding content and increasing your keyword diversity, the size 
 and rankings of your site effectively _snowball_. That is the power of
 long tail SEO.
 
 = More Information =
 
-- [Create a HitTail account](http://www.hittail.com/plans.asp) (free trial)
+- [Try HitTail Free for 30 Days](http://www.hittail.com/plans.asp)
 - [How Is HitTail Different From Analytics?](http://www.hittail.com/faq/analytics.html)
 - [What Should I Do With Keyword Suggestions?](http://www.hittail.com/faq/write.html)
 
@@ -58,12 +58,13 @@ page.
 
 = Do I need to have a HitTail account? =
 
-Yes. (Sign up here)[http://www.hittail.com/plans.asp] for a free trial.
+Yes. This plugin installs the tracking code needed for HitTail to work. 
+(Sign up here)[http://www.hittail.com/plans.asp] for a free trial.
 
 == Screenshots ==
 
-1. HitTail settings page
-2. Site ID in your HitTail account
+1. The HitTail settings page
+2. Find your site ID in your HitTail account
 
 == Changelog ==
 
