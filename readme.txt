@@ -68,8 +68,14 @@ Yes. This plugin installs the tracking code needed for HitTail to work.
 
 == Changelog ==
 
+= 1.0.2 =
+* Add banner for creating a HitTail account
+* Redirect to the HitTail Settings page after activation
+* Add a Settings link on the Plugins dashboard page
+* Update the plugin author
+
 = 1.0.1 =
-* Add screenshots for plugin page
+* Add screenshots for the Wordpress.org plugin page
 
 = 1.0.0 =
 * Initial release.
