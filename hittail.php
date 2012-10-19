@@ -11,7 +11,7 @@
  */
 /*
 Plugin Name: SEO Keyword Suggestions by HitTail
-Plugin URI: http://www.hittail.com/widget/wordpress/
+Plugin URI: http://www.hittail.com/widget/wordpress/?utm_source=wp-plugin&utm_medium=link&utm_campaign=plugins
 Description: Drive targeted search visitors to your website by focusing on the most promising organic keywords in your existing traffic.
 Version: 1.0.1
 Author: HitTail
