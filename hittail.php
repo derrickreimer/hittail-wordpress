@@ -6,7 +6,7 @@
  * 
  * @package HitTail
  * @global object $WP_HitTail
- * @author Derrick Reimer <derrick@hittail.com>
+ * @author Derrick Reimer <service@hittail.com>
  * @version 1.0.1
  */
 /*
@@ -14,7 +14,7 @@ Plugin Name: SEO Keyword Suggestions by HitTail
 Plugin URI: http://www.hittail.com/widget/wordpress/
 Description: Drive targeted search visitors to your website by focusing on the most promising organic keywords in your existing traffic.
 Version: 1.0.1
-Author: Derrick Reimer
+Author: HitTail
 Author URI: http://www.hittail.com
 License: GPLv2
 */

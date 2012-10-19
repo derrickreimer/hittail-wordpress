@@ -3,7 +3,7 @@
  * Uninstall procedures
  * 
  * @package HitTail
- * @author Derrick Reimer <derrick@hittail.com>
+ * @author Derrick Reimer <service@hittail.com>
  * @version 1.0.1
  * @since 1.0.0
  */

@@ -68,5 +68,8 @@ Yes. This plugin installs the tracking code needed for HitTail to work.
 
 == Changelog ==
 
+= 1.0.1 =
+* Add screenshots for plugin page
+
 = 1.0.0 =
 * Initial release.
