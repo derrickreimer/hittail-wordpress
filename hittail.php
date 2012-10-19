@@ -80,7 +80,6 @@ class WP_HitTail {
 	 */
 	public function deactivate() {
 		// Deactivation stuff here...
-		delete_option( 'ht_options' );
 	}
 	
 	/**
