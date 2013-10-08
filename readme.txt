@@ -37,7 +37,7 @@ long tail SEO.
 
 = More Information =
 
-- [Try HitTail Free for 30 Days](http://www.hittail.com/plans.asp)
+- [Try HitTail Free for 21 Days](http://www.hittail.com/plans.asp)
 - [How Is HitTail Different From Analytics?](http://www.hittail.com/faq/analytics.html)
 - [What Should I Do With Keyword Suggestions?](http://www.hittail.com/faq/write.html)
 
