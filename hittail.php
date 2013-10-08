@@ -160,7 +160,7 @@ class WP_HitTail {
 	 * @uses add_settings_field()
 	 */
 	public function admin_register_settings() {
-		register_setting( 'ht_options_group', $this->options_name, array( &$this, 'validate_settings' ) );
+		register_setting( $this->options_name, $this->options_name, array( &$this, 'validate_settings' ) );
 		add_settings_section( 'ht_code_settings', 'Tracking Code', array( &$this, 'admin_section_code_settings' ), $this->namespace );
 		add_settings_field( 'ht_site_id', 'Site ID', array( &$this, 'admin_option_site_id' ), $this->namespace, 'ht_code_settings' );
 		add_settings_field( 'ht_is_disabled', 'Visibility', array( &$this, 'admin_option_is_disabled' ), $this->namespace, 'ht_code_settings' );
