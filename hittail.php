@@ -6,15 +6,15 @@
  * 
  * @package HitTail
  * @global object $WP_HitTail
- * @author Derrick Reimer <derrick@hittail.com>
- * @version 1.0.1
+ * @author Derrick Reimer <service@hittail.com>
+ * @version 1.0.2
  */
 /*
 Plugin Name: SEO Keyword Suggestions by HitTail
-Plugin URI: http://www.hittail.com/widget/wordpress/
+Plugin URI: http://www.hittail.com/widget/wordpress/?utm_source=wp-plugin&utm_medium=link&utm_campaign=plugins
 Description: Drive targeted search visitors to your website by focusing on the most promising organic keywords in your existing traffic.
-Version: 1.0.1
-Author: Derrick Reimer
+Version: 1.0.2
+Author: HitTail
 Author URI: http://www.hittail.com
 License: GPLv2
 */
@@ -25,9 +25,10 @@ require_once( dirname( __FILE__ ) . '/lib/constants.php' );
 class WP_HitTail {
 	var $namespace = "hittail";
 	var $friendly_name = "HitTail";
-	var $version = "1.0.1";
+	var $version = "1.0.2";
 	var $options_name = "ht_options";
 	var $options;
+	var $settings_path;
 	
 	/**
 	 * Instantiate a new instance
@@ -35,6 +36,9 @@ class WP_HitTail {
 	 * @uses get_option()
 	 */
 	public function __construct() {
+		// Store the settings page path
+		$this->settings_path = 'options-general.php?page=' . $this->namespace;
+		
 		// Fetch options
 		$this->options = get_option( $this->options_name );
 		
@@ -58,9 +62,15 @@ class WP_HitTail {
 	public function activate() {
 		// Set default options
 		if ( ! isset( $this->options['site_id'] ) ) { $this->options['site_id'] = ""; }
+		
+		// Redirect to settings page
+		$this->options['do_redirect'] = true;
 
 		// Save options
 		update_option( $this->options_name, $this->options );
+		
+		// Redirect to settings page
+		wp_redirect($this->settings_path);
 	}
 	
 	/**
@@ -87,6 +97,12 @@ class WP_HitTail {
 
 		// Register admin settings
 		add_action( 'admin_init', array( &$this, 'admin_register_settings' ) );
+		
+		// Register activation redirect
+		add_action( 'admin_init', array( &$this, 'do_activation_redirect' ) );
+		
+		// Add settings link on plugins page
+		add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( &$this, 'plugin_action_links' ) );
 
 		// Place tracking code in the footer
 		add_action( 'wp_footer', array( &$this, 'tracking_code' ) );
@@ -108,6 +124,27 @@ class WP_HitTail {
 	}
 	
 	/**
+	 * Deletes an option from the options array
+	 *
+	 * @param string $key The name of the option you wish to delete
+	 *
+	 * @uses update_option()
+	 */
+	public function delete_option( $key ) {
+		unset( $this->options[ $key ] );
+		update_option( $this->options_name, $this->options );
+	}
+	
+	/**
+	 * Lookup the site ID from the options array
+	 *
+	 * @return mixed Returns the site ID or NULL if it is not set or empty
+	 */
+	public function site_id() {
+		return $this->get_option( 'site_id' );
+	}
+	
+	/**
 	 * Output the HitTail tracking code
 	 *
 	 * Displays nothing if tracking code is disabled or the site ID is not set.
@@ -120,6 +157,24 @@ class WP_HitTail {
 				include( WP_HITTAIL_DIRNAME . "/views/tracking-code.php" );
 			} else {
 				echo '<!-- HitTail: Set your site ID to begin tracking -->';
+			}
+		}
+	}
+	
+	/**
+	 * Performs a redirect to the settings page if the flag is set.
+	 * To be called on admin_init action.
+	 *
+	 * @uses wp_redirect()
+	 */
+	public function do_activation_redirect() {
+		if ( $this->get_option( 'do_redirect' ) ) {
+			// Prevent future redirecting
+			$this->delete_option( 'do_redirect' );
+			
+			// Only redirect if it's a single activation
+			if( ! isset( $_GET['activate-multi'] ) ) {
+				wp_redirect( $this->settings_path );
 			}
 		}
 	}
@@ -150,6 +205,24 @@ class WP_HitTail {
 		}
 		
 		include( WP_HITTAIL_DIRNAME . "/views/options.php" );
+	}
+	
+	/**
+	 * Add links on the plugin page
+	 *
+	 * @param array $links An array of existing action links
+	 * 
+	 * @uses current_user_can()
+	 * @return array Returns the new array of links
+	 */
+	public function plugin_action_links( $links ) {
+		// Ensure the user has sufficient permissions
+		if ( current_user_can( 'manage_options' ) )  {
+			$settings_link = '<a href="' . $this->settings_path . '">Settings</a>';
+			array_unshift($links, $settings_link);
+		}
+		
+		return $links;
 	}
 	
 	/**
@@ -217,7 +290,7 @@ class WP_HitTail {
 	 * Output the description for the Tracking Code settings section
 	 */
 	public function admin_section_code_settings() {
-		echo '<p>Your site ID can be found under <a href="http://www.hittail.com/app/sites.asp">Account &rarr; Sites</a> in your HitTail account.</p>';
+		echo '<p>Your site ID can be found under <a href="http://www.hittail.com/app/sites.asp" target="_blank">Account &rarr; Sites</a> in your HitTail account.</p>';
 	}
 	
 	/**

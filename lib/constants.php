@@ -3,13 +3,13 @@
  * Constants used by this plugin
  * 
  * @package HitTail
- * @author Derrick Reimer <derrick@hittail.com>
- * @version 1.0.1
+ * @author Derrick Reimer <service@hittail.com>
+ * @version 1.0.2
  * @since 1.0.0
  */
 
 // The current version of this plugin
-if( !defined( 'WP_HITTAIL_VERSION' ) ) define( 'WP_HITTAIL_VERSION', '1.0.1' );
+if( !defined( 'WP_HITTAIL_VERSION' ) ) define( 'WP_HITTAIL_VERSION', '1.0.2' );
 
 // The directory the plugin resides in
 if( !defined( 'WP_HITTAIL_DIRNAME' ) ) define( 'WP_HITTAIL_DIRNAME', dirname( dirname( __FILE__ ) ) );

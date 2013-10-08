@@ -3,7 +3,7 @@ Contributors: hittail
 Tags: seo, search engine optimization, search engine optimisation, keyword tool, keywords, longtail, long tail, hittail
 Requires at least: 3.0
 Tested up to: 3.4.2
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -41,6 +41,10 @@ long tail SEO.
 - [How Is HitTail Different From Analytics?](http://www.hittail.com/faq/analytics.html)
 - [What Should I Do With Keyword Suggestions?](http://www.hittail.com/faq/write.html)
 
+= Need Help? =
+
+[Contact our friendly support staff](http://www.hittail.com/contact.asp) for assistance.
+
 == Installation ==
 
 1. Upload the `seo-keyword-suggestions` folder to the `/wp-content/plugins/` directory
@@ -61,12 +65,26 @@ page.
 Yes. This plugin installs the tracking code needed for HitTail to work. 
 [Sign up here](http://www.hittail.com/plans.asp) for a free trial.
 
+= Who can I contact for help? =
+
+[Contact us here](http://www.hittail.com/contact.asp) for help getting set up.
+
 == Screenshots ==
 
 1. The HitTail settings page
 2. Find your site ID in your HitTail account
 
 == Changelog ==
+
+= 1.0.2 =
+* Add banner for creating a HitTail account
+* Redirect to the HitTail Settings page after activation
+* Add a Settings link on the Plugins dashboard page
+* Update the plugin author
+* Add links to support form
+
+= 1.0.1 =
+* Add screenshots for the Wordpress.org plugin page
 
 = 1.0.0 =
 * Initial release.
