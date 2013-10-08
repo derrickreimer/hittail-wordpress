@@ -187,6 +187,12 @@ class WP_HitTail {
 				add_settings_error( 'site_id', $this->namespace . '_site_id_error', "Please enter a valid site ID", 'error' );
 			}
 		}
+
+		if ( isset( $input['is_disabled'] ) ) {
+			$options['is_disabled'] = $input['is_disabled'] == "1";
+		} else {
+			$options['is_disabled'] = false;
+		}
 		
 		return $options;
 	}
