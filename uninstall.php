@@ -4,7 +4,7 @@
  * 
  * @package HitTail
  * @author Derrick Reimer <service@hittail.com>
- * @version 1.0.2
+ * @version 1.0.3
  * @since 1.0.0
  */
 

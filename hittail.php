@@ -7,13 +7,13 @@
  * @package HitTail
  * @global object $WP_HitTail
  * @author Derrick Reimer <service@hittail.com>
- * @version 1.0.2
+ * @version 1.0.3
  */
 /*
 Plugin Name: SEO Keyword Suggestions by HitTail
 Plugin URI: http://www.hittail.com/widget/wordpress/?utm_source=wp-plugin&utm_medium=link&utm_campaign=plugins
 Description: Drive targeted search visitors to your website by focusing on the most promising organic keywords in your existing traffic.
-Version: 1.0.2
+Version: 1.0.3
 Author: HitTail
 Author URI: http://www.hittail.com
 License: GPLv2
@@ -25,7 +25,7 @@ require_once( dirname( __FILE__ ) . '/lib/constants.php' );
 class WP_HitTail {
 	var $namespace = "hittail";
 	var $friendly_name = "HitTail";
-	var $version = "1.0.2";
+	var $version = "1.0.3";
 	var $options_name = "ht_options";
 	var $options;
 	var $settings_path;
