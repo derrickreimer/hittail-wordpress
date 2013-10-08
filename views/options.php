@@ -5,8 +5,6 @@
 	<form name="ht-settings-form" method="post" action="options.php">
 		<?php settings_fields( 'ht_options_group' ); ?>
 		<?php do_settings_sections( 'hittail' ); ?>
-		<p class="submit">
-			<input type="submit" name="submit" class="button-primary" value="Save Changes">
-		</p>
+		<?php submit_button(); ?>
 	</form>
 </div>
